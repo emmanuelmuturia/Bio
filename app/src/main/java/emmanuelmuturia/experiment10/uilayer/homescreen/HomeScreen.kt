@@ -1,6 +1,7 @@
 package emmanuelmuturia.experiment10.uilayer.homescreen
 
 import android.os.Build
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.biometric.BiometricPrompt
 import androidx.compose.foundation.layout.Arrangement
@@ -26,8 +27,12 @@ import kotlinx.coroutines.asExecutor
 @RequiresApi(Build.VERSION_CODES.P)
 @Composable
 fun HomeScreen(navController: NavHostController) {
-    // Create a state to track the visibility of the biometric authentication dialog
+
+    // Create a state to track the visibility of the Biometric Authentication Dialog...
     var isAuthenticationDialogVisible by remember { mutableStateOf(false) }
+
+    // Create a context for the Toast...
+    val context = LocalContext.current
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -42,23 +47,27 @@ fun HomeScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(height = 7.dp))
         Button(
             onClick = {
-                // Show the biometric authentication dialog
+                // Show the Biometric Authentication Dialog...
                 isAuthenticationDialogVisible = true
             }
         ) {
             Text(text = "Click Me")
         }
 
-        // Biometric authentication dialog
+        // Biometric Authentication Dialog...
         if (isAuthenticationDialogVisible) {
             Authenticate(
                 onAuthenticationSuccess = {
-                    isAuthenticationDialogVisible = false // Close the dialog on success
+                    // Close the Dialog on success...
+                    isAuthenticationDialogVisible = false
+                    // Navigate to the Destination Screen...
                     navController.navigate(route = Routes.DestinationScreen.route)
                 },
                 onAuthenticationError = {
-                    isAuthenticationDialogVisible = false // Close the dialog on error
-                    // Handle authentication error here
+                    // Close the Dialog on error...
+                    isAuthenticationDialogVisible = false
+                    // Handle authentication error here...
+                    Toast.makeText(context, "Authentication Failed!!!", Toast.LENGTH_LONG).show()
                 }
             )
         }
@@ -67,7 +76,8 @@ fun HomeScreen(navController: NavHostController) {
 
 @Composable
 fun Authenticate(
-    onAuthenticationSuccess: () -> Unit, onAuthenticationError: (String) -> Unit
+    onAuthenticationSuccess: () -> Unit,
+    onAuthenticationError: (String) -> Unit
 ) {
     val biometricPrompt = CreateBiometricPrompt(
         onAuthenticationSuccess, onAuthenticationError
@@ -75,19 +85,21 @@ fun Authenticate(
 
     val promptInfo = createBiometricPromptInfo()
 
-    // Start biometric authentication
+    // Start biometric authentication...
     biometricPrompt.authenticate(promptInfo)
 }
 
 @Composable
 fun CreateBiometricPrompt(
-    onAuthenticationSuccess: () -> Unit, onAuthenticationError: (String) -> Unit
+    onAuthenticationSuccess: () -> Unit,
+    onAuthenticationError: (String) -> Unit
 ): BiometricPrompt {
 
     val context = LocalContext.current
     val executor = Dispatchers.Main.asExecutor()
 
-    return BiometricPrompt(context as FragmentActivity,
+    return BiometricPrompt(
+        context as FragmentActivity,
         executor,
         object : BiometricPrompt.AuthenticationCallback() {
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
@@ -104,7 +116,7 @@ fun CreateBiometricPrompt(
 
 private fun createBiometricPromptInfo(): BiometricPrompt.PromptInfo {
     return BiometricPrompt.PromptInfo.Builder().setTitle("Biometric Authentication")
-        .setSubtitle("Authenticate using your fingerprint or face")
-        .setDescription("Please place your finger on the fingerprint sensor or use facial recognition.")
+        .setSubtitle("Authenticate using your fingerprint...")
+        .setDescription("Please place your finger on the fingerprint sensor...")
         .setConfirmationRequired(true).setNegativeButtonText("Cancel").build()
 }

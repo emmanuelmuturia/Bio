@@ -26,7 +26,7 @@ fun DestinationScreen() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Here's your treasure!",
+            text = "Here's your treasure:",
             fontWeight = FontWeight.ExtraBold,
             fontSize = 14.sp
         )
