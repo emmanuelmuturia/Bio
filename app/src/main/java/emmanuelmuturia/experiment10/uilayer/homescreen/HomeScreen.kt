@@ -114,6 +114,7 @@ fun myBiometricPrompt(
         })
 }
 
+// Function that defines the Biometric Dialog's UI...
 private fun createBiometricPromptInfo(): BiometricPrompt.PromptInfo {
     return BiometricPrompt.PromptInfo.Builder().setTitle("Biometric Authentication")
         .setSubtitle("Authenticate using your fingerprint...")
