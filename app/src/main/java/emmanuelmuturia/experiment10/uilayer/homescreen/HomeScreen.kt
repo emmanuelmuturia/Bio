@@ -56,7 +56,7 @@ fun HomeScreen(navController: NavHostController) {
 
         // Biometric Authentication Dialog...
         if (isAuthenticationDialogVisible) {
-            Authenticate(
+            AuthenticationDialog(
                 onAuthenticationSuccess = {
                     // Close the Dialog on success...
                     isAuthenticationDialogVisible = false
@@ -75,11 +75,11 @@ fun HomeScreen(navController: NavHostController) {
 }
 
 @Composable
-fun Authenticate(
+fun AuthenticationDialog(
     onAuthenticationSuccess: () -> Unit,
     onAuthenticationError: (String) -> Unit
 ) {
-    val biometricPrompt = CreateBiometricPrompt(
+    val biometricPrompt = myBiometricPrompt(
         onAuthenticationSuccess, onAuthenticationError
     )
 
@@ -90,7 +90,7 @@ fun Authenticate(
 }
 
 @Composable
-fun CreateBiometricPrompt(
+fun myBiometricPrompt(
     onAuthenticationSuccess: () -> Unit,
     onAuthenticationError: (String) -> Unit
 ): BiometricPrompt {
