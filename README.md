@@ -55,11 +55,11 @@ implementation("androidx.biometric:biometric-ktx:1.2.0-alpha05")
 - To test the app, run and click the button...
 - If the device has the Biometric (Fingerprint) functionality, you should see the dialog pop up after clicking the button...
 - Once the authentication process is complete, the dialog should disappear and whatever functionality you implemented should follow up, which in this case is the navigation to the next screen...
-- Here's the flow of screens:
+- Here's the flow of this app's screens:
 
 <p align="center">
   <img src="https://github.com/emmanuelmuturia/Bio/assets/55001497/f2beaef7-ac3f-4df3-9864-c78685745d35" width="400" alt="Image 1" />
-  <img src="https://github.com/emmanuelmuturia/Bio/assets/55001497/edc4aad1-b79c-4815-9882-3ac9e2b2e5ff" width="400" alt="Image 2" />
+  <img src="https://github.com/emmanuelmuturia/Bio/assets/55001497/2e41a969-d2cc-49e5-89cd-5d47900b90ed" width="400" alt="Image 2" />
 </p>
 
 ## Trivia
