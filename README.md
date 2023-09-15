@@ -58,8 +58,8 @@ implementation("androidx.biometric:biometric-ktx:1.2.0-alpha05")
 - Here's the flow of screens:
 
 <p align="center">
-  <img src="[image1.jpg](https://github.com/emmanuelmuturia/Bio/assets/55001497/f2beaef7-ac3f-4df3-9864-c78685745d35)" width="400" alt="Image 1" />
-  <img src="[image2.jpg](https://github.com/emmanuelmuturia/Bio/assets/55001497/edc4aad1-b79c-4815-9882-3ac9e2b2e5ff)" width="400" alt="Image 2" />
+  <img src="https://github.com/emmanuelmuturia/Bio/assets/55001497/f2beaef7-ac3f-4df3-9864-c78685745d35" width="400" alt="Image 1" />
+  <img src="https://github.com/emmanuelmuturia/Bio/assets/55001497/edc4aad1-b79c-4815-9882-3ac9e2b2e5ff" width="400" alt="Image 2" />
 </p>
 
 ## Trivia
