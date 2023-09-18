@@ -1,5 +1,5 @@
 
-# Experiment #10 (Bio)
+# Experiment #10 (Bio Finger)
 
 ## Overview
 This is an Android application that demonstrates the implementation of Biometric Authentication (Fingerprint) in Jetpack Compose...
